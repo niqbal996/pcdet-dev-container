@@ -1,0 +1,9 @@
+[submodule "thirdparty/OpenPCDet"]
+	path = thirdparty/OpenPCDet
+	url = git@github.com:open-mmlab/OpenPCDet.git
+[submodule "thirdparty/spconv"]
+	path = thirdparty/spconv
+	url = git@github.com:traveller59/spconv.git
+[submodule "thirdparty/--recursive"]
+	path = thirdparty/--recursive
+	url = git@github.com:traveller59/spconv.git
