@@ -34,8 +34,10 @@ RUN apt-get update && \
 
 COPY . /workspace/pcdet-dev
 WORKDIR /workspace/pcdet-dev 
-RUN python3 -m pip install --upgrade pip && python3 -m pip install -r ./docker/requirements.txt
-RUN cd ./thirdparty/OpenPCDet && python3 setup.py develop 
-RUN mim install mmcv-full mmdet 
-RUN cd ./thirdparty/mmdetection3d/ && python3 setup.py develop
-RUN cd ./thirdparty/mmdeploy/ && python3 setup.py develop
+RUN pip install --upgrade pip
+RUN pip install -r ./docker/requirements.txt
+#RUN ./docker/install_mmlab.sh
+#RUN cd ./thirdparty/OpenPCDet && python3 setup.py develop
+#RUN mim install mmcv-full mmdet
+#RUN cd ./thirdparty/mmdetection3d/ && python3 setup.py develop
+#RUN cd ./thirdparty/mmdeploy/ && python3 setup.py develop
