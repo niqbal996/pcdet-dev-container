@@ -1,5 +1,5 @@
 ARG BASE_IMAGE=nvcr.io/nvidia/tensorrt:21.10-py3
-FROM ${BASE_IMAGE} as onnxruntime
+FROM ${BASE_IMAGE} as tensorRT2110
 
 #ARG WHEEL_FILE
 ARG UNAME=docker
@@ -35,7 +35,12 @@ RUN apt-get update && \
 COPY . /workspace/pcdet-dev
 WORKDIR /workspace/pcdet-dev 
 RUN pip install --upgrade pip
-RUN pip install -r ./docker/requirements.txt
+# avoid downloading PyTorch and use cached downloads
+RUN --mount=type=cache,target=/root/.cache \
+    pip install -r ./docker/requirements.txt
+
+# libGL.so.1 required for
+RUN apt-get install -y ffmpeg libsm6 libxext6 python3-tk #import tkinter
 #RUN ./docker/install_mmlab.sh
 #RUN cd ./thirdparty/OpenPCDet && python3 setup.py develop
 #RUN mim install mmcv-full mmdet
