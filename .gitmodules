@@ -4,3 +4,9 @@
 [submodule "thirdparty/spconv"]
 	path = thirdparty/spconv
 	url = git@github.com:traveller59/spconv.git
+[submodule "thirdparty/mmdeploy"]
+	path = thirdparty/mmdeploy
+	url = git@github.com:open-mmlab/mmdeploy.git
+[submodule "thirdparty/mmdetection3d"]
+	path = thirdparty/mmdetection3d
+	url = git@github.com:open-mmlab/mmdetection3d.git
